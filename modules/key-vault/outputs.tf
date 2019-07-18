@@ -1,3 +1,3 @@
 output "secrets_values" {
-  value = data.azurerm_key_vault_secret.vaultvalue.*.value
+  value       = { for s in data.azurerm_key_vault_secret.vaultvalue : s.name => s.value }
 }
