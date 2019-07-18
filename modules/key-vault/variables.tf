@@ -1,10 +1,10 @@
 variable "name" {
-  description = "Namme of vault"
+  description = "Name of vault"
 }
 variable "resource_group" {
   description = "Resource group where vault resides"
 }
 
 variable "secret_names" {
-  description = "Names of screts to fetch"
+  description = "Names of secrets to fetch"
 }
