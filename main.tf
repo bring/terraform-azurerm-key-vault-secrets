@@ -4,7 +4,7 @@ data "azurerm_key_vault" "vault" {
 }
 
 data "azurerm_key_vault_secret" "vaultvalue" {
-  count = length(var.secret_names)
-  name = var.secret_names[count.index]
+  count        = length(var.secret_names)
+  name         = var.secret_names[count.index]
   key_vault_id = data.azurerm_key_vault.vault.id
 }
