@@ -1,0 +1,22 @@
+on:
+  pull_request:
+    types: [opened, synchronize, rerequested]
+name: terraform-validate
+jobs:
+  format-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: terraform-fmt
+        uses: hashicorp/terraform-github-actions/fmt@v0.4.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: terraform-init
+        uses: hashicorp/terraform-github-actions/init@v0.4.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: terraform-validate
+        uses: hashicorp/terraform-github-actions/validate@v0.4.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
